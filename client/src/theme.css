@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+@import "tailwindcss-safe-area";
+
+@theme {
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-lg: 18px;
+  --text-lg--line-height: 28px;
+  --text-xl: 20px;
+  --text-xl--line-height: 28px;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 32px;
+  --text-3xl: 30px;
+  --text-3xl--line-height: 36px;
+  --text-4xl: 36px;
+  --text-4xl--line-height: 40px;
+  --text-5xl: 48px;
+  --text-5xl--line-height: 52px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Archivo", system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light dark;
+  /* Reference style: smooth blue gradient page, white cards, teal primary. */
+  --bg: #2f6bea;
+  --bg-gradient: linear-gradient(160deg, #2f6bea 0%, #4a83f0 55%, #6fa0ff 100%);
+  --surface: #ffffff;
+  --surface-alt: #eef4ff;
+  --text: #16233c;
+  --dim: #5d6b84;
+  --border: #d9e2f2;
+  --accent: #27b5a4;
+  --accent-ink: #ffffff;
+  --secondary: #dceaff;
+  --secondary-ink: #1d4fa1;
+  --amber: #b45309;
+  --danger: #b3261e;
+  --radius: 16px;
+  --card-shadow: 0 10px 30px rgba(16, 42, 99, 0.18);
+  --space-surface: var(--surface);
+  --space-surface-alt: var(--surface-alt);
+  --space-muted: var(--dim);
+  --space-border: var(--border);
+  --space-accent: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1b38;
+    --bg-gradient: linear-gradient(160deg, #0d1b38 0%, #12295a 60%, #1b3a7d 100%);
+    --surface: #16233f;
+    --surface-alt: #1d2f52;
+    --text: #eef3ff;
+    --dim: #a5b4d0;
+    --border: #2c4066;
+    --accent: #2fd3bd;
+    --accent-ink: #06231e;
+    --secondary: #22355c;
+    --secondary-ink: #bcd4ff;
+    --amber: #f0a13c;
+    --danger: #f08a80;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* Phone tap targets: at least 32px tall. */
+@layer base {
+  button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) {
+    min-height: 2rem;
+  }
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* The invoice sheet is the only thing that prints. */
+@media print {
+  .app-shell {
+    display: none !important;
+  }
+  .print-area {
+    display: block !important;
+  }
+}
+.print-area {
+  display: none;
+}
